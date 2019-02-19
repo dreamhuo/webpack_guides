@@ -2,6 +2,7 @@ const path = require('path');
 
 module.exports = {
   entry: './src/index.js',
+  mode: 'none',  // "development" | "production" | "none"
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist')
@@ -17,6 +18,12 @@ module.exports = {
         },
         {
             test: /\.(png|svg|jpg|gif)$/,
+            use: [
+                'file-loader'
+            ]
+        },
+        {
+            test: /\.(woff|woff2|eot|ttf|otf)$/,
             use: [
                 'file-loader'
             ]
