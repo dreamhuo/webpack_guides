@@ -9,6 +9,14 @@ module.exports = {
     app: './src/index.js'
   },
   devtool: 'inline-source-map',
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      }
+    ]
+  },
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
