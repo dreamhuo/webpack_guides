@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch",
+    "start": "webpack-dev-server --open",
     "build": "webpack --config webpack.config.js"
   },
   "keywords": [],
@@ -15,11 +16,13 @@
     "clean-webpack-plugin": "^1.0.1",
     "css-loader": "^2.1.0",
     "csv-loader": "^3.0.2",
+    "express": "^4.16.4",
     "file-loader": "^3.0.1",
     "html-webpack-plugin": "^3.2.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.29.4",
     "webpack-cli": "^3.2.3",
+    "webpack-dev-middleware": "^3.6.0",
     "webpack-dev-server": "^3.1.14",
     "xml-loader": "^1.2.1"
   },
