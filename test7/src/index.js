@@ -13,3 +13,4 @@ function component() {
 }
 
 document.body.appendChild(component());
+console.log('index');
