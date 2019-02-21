@@ -2,11 +2,13 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',  // "development" | "production" | "none"
-  entry: './src/index.js',
+  entry: {
+    index: './src/index.js',
+    another: './src/another-module.js'
+  },
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/'
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist')
   }
   // optimization: {
   //   usedExports: false
