@@ -3,19 +3,19 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  mode: 'none',  // "development" | "production" | "none"
+  mode: 'production',  // "development" | "production" | "none"
   entry: {
-    app: './src/index.js',
-    print: './src/print.js'
+    index: './src/index.js'
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-        title: '管理输出'
+        title: '懒加载'
     })
   ],
   output: {
     filename: '[name].bundle.js',
+    chunkFilename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist')
   }
 };
