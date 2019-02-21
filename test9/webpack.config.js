@@ -5,7 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
   mode: 'development',  // "development" | "production" | "none"
   entry: {
-    index: './src/index.js'
+    index: './src/index_async.js'
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
