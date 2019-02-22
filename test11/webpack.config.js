@@ -18,6 +18,16 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
   optimization: {
-    runtimeChunk: 'single'
+    runtimeChunk: 'single',
+    // 通过 splitChunks.cacheGroups 把 node_modules 文件打成一个单独包
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      }
+    }
   }
 };
