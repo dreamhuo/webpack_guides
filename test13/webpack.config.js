@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  mode: 'development',  // "development" | "production" | "none"
+  mode: 'production',  // "development" | "production" | "none"
   entry: './src/index.js',
   devtool: 'inline-source-map',
   plugins: [
@@ -26,6 +26,10 @@ module.exports = {
         // 通过使用 imports-loader 覆写 this
         test: require.resolve('./src/index.js'),
         use: 'imports-loader?this=>window'
+      },
+      {
+        test: require.resolve('./src/globals.js'),
+        use: 'exports-loader?file,parse=helpers.parse!./src/globals.js'
       }
     ]
   },
