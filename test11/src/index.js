@@ -6,8 +6,8 @@ function component() {
     var element = document.createElement('div');
 
     element.innerHTML = _.join(['Hello', 'webpack'], '');
-    element.onClick = Print.bind(null, 'Hello webpack!');
-
+    element.onclick = Print.bind('Print', 'Hello webpack!');
+    console.log('index');
     return element;
 }
 
