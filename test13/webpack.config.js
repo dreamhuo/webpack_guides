@@ -1,10 +1,17 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  // mode: 'production',  // "development" | "production" | "none"
+  mode: 'development',  // "development" | "production" | "none"
   entry: './src/index.js',
+  devtool: 'inline-source-map',
   plugins: [
+    new CleanWebpackPlugin(['dist']),
+    new HtmlWebpackPlugin({
+        title: 'shimming'
+    }),
     // 如果你遇到了至少一处用到 _ 变量的模块实例，
     // 那请你将 lodash package 包引入进来，并将其提供给需要用到它的模块
     new webpack.ProvidePlugin({
@@ -13,8 +20,17 @@ module.exports = {
         // join: ['lodash', 'join']
     })
   ],
+  module: {
+    rules: [
+      {
+        // 通过使用 imports-loader 覆写 this
+        test: require.resolve('./src/index.js'),
+        use: 'imports-loader?this=>window'
+      }
+    ]
+  },
   output: {
-    filename: 'bundle.js',
+    filename: '[hash].bundle.js',
     path: path.resolve(__dirname, 'dist')
   }
 };
