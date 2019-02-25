@@ -1,30 +1,5 @@
 import _ from 'lodash';
-const numRef =   [
-    {
-      'num': 1,
-      'word': 'One'
-    },
-    {
-      'num': 'huo2',
-      'word': 'Two'
-    },
-    {
-      'num': 3,
-      'word': 'Three'
-    },
-    {
-      'num': 4,
-      'word': 'Four'
-    },
-    {
-      'num': 5,
-      'word': 'Five'
-    },
-    {
-      'num': 0,
-      'word': 'Zero'
-    }
-  ];
+import numRef from './ref.json';
 
 export function numToWord(num) {
     return _.reduce(numRef, (accum, ref) => {
