@@ -1,0 +1,9 @@
+正如我们在 [代码分离]code splitting 中所学到的，SplitChunksPlugin 可以用于将模块分离到单独的文件中。
+webpack 提供了一个优化功能，可以根据提供的选项将运行时代码拆分成单独的块，直接将 optimization.runtimeChunk 设置为 single，
+就能创建单个运行时 bundle(one runtime bundle)：
+
+将第三方库(library)（例如 lodash 或 react）提取到单独的 vendor chunk 文件中，是比较推荐的做法，
+这是因为，它们很少像本地的源代码那样频繁修改。因此通过实现以上步骤，利用客户端的长效缓存机制，可以
+通过命中缓存来消除请求，并减少向服务器获取资源，同时还能保证客户端代码和服务器端代码版本一致。
+
+这可以通过使用 SplitChunksPlugin 示例 2 中演示的 SplitChunksPlugin 插件的 cacheGroups 选项来实现
